@@ -22,12 +22,9 @@ description: "Real-time analytics and insights about my work and progress"
         Total Writeups
       </span>
     </div>
-    <div class="analytics-value" id="total-writeups">
-      {% assign blog_posts = site.pages | where_exp: "page", "page.path contains 'blog/'" | where_exp: "page", "page.name != 'index.md'" %}
-      {{ blog_posts | size }}
-    </div>
+    <div class="analytics-value" id="total-writeups">0</div>
     <div class="analytics-change positive" id="writeups-change">
-      ↗ Ready to grow!
+      🚀 Getting started!
     </div>
   </div>
   
@@ -35,12 +32,12 @@ description: "Real-time analytics and insights about my work and progress"
     <div class="analytics-header">
       <span class="analytics-title">
         <span class="analytics-icon">🎯</span>
-        Projects Created
+        Projects
       </span>
     </div>
-    <div class="analytics-value" id="categories-count">5</div>
+    <div class="analytics-value" id="categories-count">1</div>
     <div class="analytics-change positive">
-      ↗ +2 this month
+      💻 This portfolio!
     </div>
   </div>
   
@@ -48,12 +45,12 @@ description: "Real-time analytics and insights about my work and progress"
     <div class="analytics-header">
       <span class="analytics-title">
         <span class="analytics-icon">📚</span>
-        Skills Mastered
+        Skills Learning
       </span>
     </div>
-    <div class="analytics-value" id="total-words">12</div>
+    <div class="analytics-value" id="total-words">∞</div>
     <div class="analytics-change positive">
-      ↗ Always learning
+      📈 Always growing
     </div>
   </div>
   
@@ -61,12 +58,28 @@ description: "Real-time analytics and insights about my work and progress"
     <div class="analytics-header">
       <span class="analytics-title">
         <span class="analytics-icon">⏱️</span>
-        Years Experience
+        Coffee Consumed
       </span>
     </div>
-    <div class="analytics-value" id="avg-reading-time">5+</div>
-    <div style="font-size: 0.9rem; color: var(--text-muted);">and counting</div>
+    <div class="analytics-value" id="avg-reading-time">☕</div>
+    <div style="font-size: 0.9rem; color: var(--text-muted);">lots of cups</div>
   </div>
+</div>
+
+<!-- Customization Guide -->
+<div style="background: var(--bg-secondary); border-radius: 12px; padding: 2rem; margin: 2rem 0; border-left: 4px solid var(--primary-color);">
+  <h3 style="margin-top: 0; color: var(--text-primary);">🎨 Want to Customize These Numbers?</h3>
+  <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+    Edit the values in <code>analytics/index.md</code> to reflect your real stats:
+  </p>
+  <div style="background: var(--bg-primary); border-radius: 8px; padding: 1rem; font-family: monospace; font-size: 0.9rem;">
+    <div style="color: var(--text-muted);">// Change these numbers to whatever you want:</div>
+    <div style="color: var(--primary-color);">&lt;div class="analytics-value"&gt;YOUR_NUMBER&lt;/div&gt;</div>
+    <div style="color: var(--text-muted);">// And customize the descriptions too!</div>
+  </div>
+  <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 0.9rem;">
+    <strong>Pro tip:</strong> Start with small, realistic numbers and update them as you grow! 📈
+  </p>
 </div>
 
 ## 📈 Content Performance
@@ -330,15 +343,17 @@ document.addEventListener('DOMContentLoaded', function() {
     function createMonthlyChart() {
         const ctx = document.getElementById('monthlyChart').getContext('2d');
         
-        // Process Jekyll posts by month - using static data for now
+        // Demo data that you can easily customize
         const monthlyData = {
-            '2024-12': 2,
-            '2025-01': 5,
-            '2025-02': 3,
-            '2025-03': 7,
-            '2025-04': 4,
-            '2025-05': 6
+            '2024-10': 0,
+            '2024-11': 0, 
+            '2024-12': 0,
+            '2025-01': 1,  // This portfolio counts as 1!
+            '2025-02': 0,
+            '2025-03': 0
         };
+        
+        // 💡 To customize: Change these numbers to match your actual progress!
         
         const labels = Object.keys(monthlyData).slice(-6); // Last 6 months
         const data = labels.map(month => monthlyData[month] || 0);
@@ -383,14 +398,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function createCategoryChart() {
         const ctx = document.getElementById('categoryChart').getContext('2d');
         
-        // Process categories - using static data for demo
+        // Customize these categories and numbers to match what YOU actually do
         const categories = {
-            'cybersecurity': 15,
-            'web-dev': 12,
-            'tools': 8,
-            'research': 10,
-            'tutorials': 5
+            'getting-started': 1,  // This portfolio!
+            'learning': 1,         // Always learning
+            'planning': 1,         // Future projects
+            'coffee': 1,           // ☕ Essential category
+            'motivation': 1        // Building momentum
         };
+        
+        // 🎨 Pro tip: Update these as you create real content!
         
         const labels = Object.keys(categories);
         const data = Object.values(categories);
