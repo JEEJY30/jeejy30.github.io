@@ -7,7 +7,7 @@
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
@@ -18,51 +18,95 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary">
 </head>
-<body>
+<body data-theme="light">
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <span class="theme-icon">🌙</span>
+        <span class="theme-text">Dark</span>
+    </button>
+
     <div class="site-container">
-        <!-- Beautiful Sidebar -->
+        <!-- Personal Sidebar -->
         <aside class="sidebar">
-            <div class="sidebar-header">
-                <a href="{{ '/' | relative_url }}" class="site-logo">
-                    📚 {{ site.title }}
-                </a>
-                <p class="site-tagline">{{ site.description | default: "Beautiful documentation made simple" }}</p>
+            <!-- Profile Section -->
+            <div class="profile-section">
+                <div class="profile-avatar">
+                    👨‍💻
+                </div>
+                <h1 class="profile-name">{{ site.author.name | default: "Your Name" }}</h1>
+                <p class="profile-title">{{ site.author.title | default: "Software Developer & Security Researcher" }}</p>
+                <p class="profile-bio">{{ site.author.bio | default: "Passionate about cybersecurity, web development, and sharing knowledge through detailed writeups and professional experiences." }}</p>
+                
+                <!-- Social Links -->
+                <div class="social-links">
+                    {% if site.author.github %}
+                    <a href="https://github.com/{{ site.author.github }}" class="social-link" target="_blank">💻</a>
+                    {% endif %}
+                    {% if site.author.linkedin %}
+                    <a href="https://linkedin.com/in/{{ site.author.linkedin }}" class="social-link" target="_blank">💼</a>
+                    {% endif %}
+                    {% if site.author.twitter %}
+                    <a href="https://twitter.com/{{ site.author.twitter }}" class="social-link" target="_blank">🐦</a>
+                    {% endif %}
+                    {% if site.author.email %}
+                    <a href="mailto:{{ site.author.email }}" class="social-link">📧</a>
+                    {% endif %}
+                </div>
             </div>
             
+            <!-- Navigation -->
             <nav class="sidebar-nav">
                 <div class="nav-section">
-                    <h3 class="nav-section-title">Main</h3>
+                    <h3 class="nav-section-title">Navigation</h3>
                     <ul class="nav-links">
-                        <li><a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' %}active{% endif %}">🏠 Home</a></li>
-                        <li><a href="{{ '/docs/' | relative_url }}" class="nav-link {% if page.url contains '/docs/' %}active{% endif %}">📖 Documentation</a></li>
-                        <li><a href="{{ '/blog/' | relative_url }}" class="nav-link {% if page.url contains '/blog/' %}active{% endif %}">📝 Blog</a></li>
+                        <li><a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' %}active{% endif %}">
+                            <span class="nav-link-icon">🏠</span> Home
+                        </a></li>
+                        <li><a href="{{ '/about/' | relative_url }}" class="nav-link {% if page.url contains '/about/' %}active{% endif %}">
+                            <span class="nav-link-icon">👨‍💻</span> About Me
+                        </a></li>
+                        <li><a href="{{ '/experience/' | relative_url }}" class="nav-link {% if page.url contains '/experience/' %}active{% endif %}">
+                            <span class="nav-link-icon">💼</span> Experience
+                        </a></li>
+                        <li><a href="{{ '/writeups/' | relative_url }}" class="nav-link {% if page.url contains '/writeups/' %}active{% endif %}">
+                            <span class="nav-link-icon">📝</span> Writeups
+                        </a></li>
+                        <li><a href="{{ '/projects/' | relative_url }}" class="nav-link {% if page.url contains '/projects/' %}active{% endif %}">
+                            <span class="nav-link-icon">🚀</span> Projects
+                        </a></li>
                     </ul>
                 </div>
                 
                 <div class="nav-section">
-                    <h3 class="nav-section-title">Quick Start</h3>
+                    <h3 class="nav-section-title">Categories</h3>
                     <ul class="nav-links">
-                        <li><a href="{{ '/docs/installation' | relative_url }}" class="nav-link">⚡ Installation</a></li>
-                        <li><a href="{{ '/docs/getting-started' | relative_url }}" class="nav-link">🚀 Getting Started</a></li>
-                        <li><a href="{{ '/docs/troubleshooting' | relative_url }}" class="nav-link">🛠️ Troubleshooting</a></li>
+                        <li><a href="{{ '/writeups/cybersecurity/' | relative_url }}" class="nav-link">
+                            <span class="nav-link-icon">🔒</span> Cybersecurity
+                        </a></li>
+                        <li><a href="{{ '/writeups/web-dev/' | relative_url }}" class="nav-link">
+                            <span class="nav-link-icon">🌐</span> Web Development
+                        </a></li>
+                        <li><a href="{{ '/writeups/tools/' | relative_url }}" class="nav-link">
+                            <span class="nav-link-icon">🛠️</span> Tools & Tutorials
+                        </a></li>
+                        <li><a href="{{ '/writeups/research/' | relative_url }}" class="nav-link">
+                            <span class="nav-link-icon">🔬</span> Research
+                        </a></li>
                     </ul>
                 </div>
                 
                 <div class="nav-section">
-                    <h3 class="nav-section-title">Advanced</h3>
+                    <h3 class="nav-section-title">Connect</h3>
                     <ul class="nav-links">
-                        <li><a href="{{ '/docs/configuration' | relative_url }}" class="nav-link">⚙️ Configuration</a></li>
-                        <li><a href="{{ '/docs/api' | relative_url }}" class="nav-link">🔌 API Reference</a></li>
-                        <li><a href="{{ '/docs/examples' | relative_url }}" class="nav-link">💡 Examples</a></li>
-                    </ul>
-                </div>
-                
-                <div class="nav-section">
-                    <h3 class="nav-section-title">Community</h3>
-                    <ul class="nav-links">
-                        <li><a href="https://github.com/{{ site.github_username | default: 'yourusername' }}" class="nav-link" target="_blank">💻 GitHub</a></li>
-                        <li><a href="{{ '/contributing' | relative_url }}" class="nav-link">🤝 Contributing</a></li>
-                        <li><a href="{{ '/changelog' | relative_url }}" class="nav-link">📋 Changelog</a></li>
+                        <li><a href="{{ '/contact/' | relative_url }}" class="nav-link">
+                            <span class="nav-link-icon">📬</span> Contact
+                        </a></li>
+                        <li><a href="{{ '/resume/' | relative_url }}" class="nav-link">
+                            <span class="nav-link-icon">📄</span> Resume
+                        </a></li>
+                        <li><a href="https://github.com/{{ site.author.github | default: 'yourusername' }}" class="nav-link" target="_blank">
+                            <span class="nav-link-icon">⭐</span> GitHub
+                        </a></li>
                     </ul>
                 </div>
             </nav>
@@ -80,13 +124,53 @@
             </div>
             
             <footer class="site-footer">
-                <p>&copy; 2025 {{ site.title }}. Built with ❤️ using Jekyll & GitHub Pages.</p>
+                <p>&copy; 2025 {{ site.author.name | default: "Your Name" }}. Built with ❤️ and lots of ☕</p>
+                <p>Sharing knowledge, one writeup at a time.</p>
             </footer>
         </main>
     </div>
 
-    <!-- JavaScript for mobile menu -->
+    <!-- JavaScript -->
     <script>
+        // Theme Toggle Functionality
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.querySelector('.theme-icon');
+            const themeText = document.querySelector('.theme-text');
+            const currentTheme = body.getAttribute('data-theme');
+            
+            if (currentTheme === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        // Load saved theme
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const body = document.body;
+            const themeIcon = document.querySelector('.theme-icon');
+            const themeText = document.querySelector('.theme-text');
+            
+            body.setAttribute('data-theme', savedTheme);
+            
+            if (savedTheme === 'dark') {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark';
+            }
+        });
+        
+        // Mobile Menu Toggle
         function toggleMobileMenu() {
             const sidebar = document.querySelector('.sidebar');
             sidebar.classList.toggle('open');
@@ -106,6 +190,16 @@
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 document.querySelector('.sidebar').classList.remove('open');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
     </script>

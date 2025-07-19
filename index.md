@@ -1,64 +1,226 @@
 ---
 layout: default
-title: "Welcome"
-description: "Your comprehensive guide to mastering our project"
+title: "Home"
+description: "Welcome to my personal portfolio showcasing professional experiences, writeups, and projects"
 ---
 
-# Welcome to Your Documentation Hub 🚀
+<div class="page-title">Welcome to My Digital Space</div>
+<p class="page-subtitle">Software Developer, Security Researcher, and Technical Writer sharing knowledge through detailed writeups and professional insights.</p>
 
-Transform your development workflow with our comprehensive documentation and tutorials.
+## 📊 Quick Stats
 
-<div class="feature-grid">
-    <div class="feature-card">
-        <span class="feature-icon">⚡</span>
-        <h3 class="feature-title">Quick Start</h3>
-        <p class="feature-description">Get up and running in minutes with our streamlined installation process and clear setup instructions.</p>
-        <a href="{{ '/docs/getting-started' | relative_url }}" class="read-more">Get Started</a>
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Writeups Published</div>
     </div>
-    
-    <div class="feature-card">
-        <span class="feature-icon">📖</span>
-        <h3 class="feature-title">Comprehensive Docs</h3>
-        <p class="feature-description">Detailed documentation covering every feature, API endpoint, and configuration option you'll need.</p>
-        <a href="{{ '/docs/' | relative_url }}" class="read-more">Browse Docs</a>
+    <div class="stat-card">
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Years Experience</div>
     </div>
-    
-    <div class="feature-card">
-        <span class="feature-icon">💡</span>
-        <h3 class="feature-title">Examples & Tutorials</h3>
-        <p class="feature-description">Real-world examples and step-by-step tutorials to help you master advanced concepts quickly.</p>
-        <a href="{{ '/docs/examples' | relative_url }}" class="read-more">View Examples</a>
+    <div class="stat-card">
+        <div class="stat-number">25+</div>
+        <div class="stat-label">Projects Completed</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">10k+</div>
+        <div class="stat-label">Lines of Code</div>
     </div>
 </div>
 
-## 🎯 Popular Pages
+## 🌟 What I Do
 
-- **[Installation Guide]({{ '/docs/installation' | relative_url }})** - Set up everything you need in 5 minutes
-- **[API Reference]({{ '/docs/api' | relative_url }})** - Complete API documentation with examples
-- **[Configuration]({{ '/docs/configuration' | relative_url }})** - Customize for your specific needs
-- **[Troubleshooting]({{ '/docs/troubleshooting' | relative_url }})** - Solutions to common issues
-
-## 📝 Latest Blog Posts
-
-{% for post in site.posts limit:3 %}
-<div class="card">
-    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-    <div class="post-meta">{{ post.date | date: "%B %d, %Y" }} • {{ post.author | default: "Team" }}</div>
-    <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
-    <a href="{{ post.url | relative_url }}" class="read-more">Read More</a>
+<div class="experience-grid">
+    <div class="experience-card">
+        <div class="experience-header">
+            <div>
+                <h3 class="experience-title">🔒 Cybersecurity Research</h3>
+                <p class="experience-company">Vulnerability Assessment & Penetration Testing</p>
+            </div>
+        </div>
+        <p class="experience-description">
+            Specialized in web application security, network penetration testing, and vulnerability research. 
+            I regularly publish detailed writeups on CTF challenges, bug bounty findings, and security tools.
+        </p>
+        <div class="experience-skills">
+            <span class="skill-tag">OWASP Top 10</span>
+            <span class="skill-tag">Burp Suite</span>
+            <span class="skill-tag">Metasploit</span>
+            <span class="skill-tag">Python</span>
+        </div>
+    </div>
+    
+    <div class="experience-card">
+        <div class="experience-header">
+            <div>
+                <h3 class="experience-title">💻 Full-Stack Development</h3>
+                <p class="experience-company">Modern Web Applications</p>
+            </div>
+        </div>
+        <p class="experience-description">
+            Building scalable web applications with modern frameworks and best practices. 
+            From concept to deployment, I create solutions that are both secure and user-friendly.
+        </p>
+        <div class="experience-skills">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">PostgreSQL</span>
+        </div>
+    </div>
+    
+    <div class="experience-card">
+        <div class="experience-header">
+            <div>
+                <h3 class="experience-title">📝 Technical Writing</h3>
+                <p class="experience-company">Knowledge Sharing & Education</p>
+            </div>
+        </div>
+        <p class="experience-description">
+            Creating comprehensive writeups, tutorials, and documentation to help others learn. 
+            My content ranges from beginner-friendly guides to advanced technical deep-dives.
+        </p>
+        <div class="experience-skills">
+            <span class="skill-tag">Technical Writing</span>
+            <span class="skill-tag">Documentation</span>
+            <span class="skill-tag">Tutorials</span>
+            <span class="skill-tag">Markdown</span>
+        </div>
+    </div>
 </div>
-{% endfor %}
 
-<a href="{{ '/blog/' | relative_url }}" class="read-more">View All Posts</a>
+## 📝 Latest Writeups
 
-## 🤝 Get Involved
+<div class="writeup-grid">
+    {% for post in site.posts limit:6 %}
+    <div class="writeup-card">
+        <div class="writeup-image">
+            {% if post.category == 'cybersecurity' %}🔒
+            {% elsif post.category == 'web-dev' %}🌐
+            {% elsif post.category == 'tools' %}🛠️
+            {% else %}📄{% endif %}
+        </div>
+        <div class="writeup-content">
+            <h3 class="writeup-title">{{ post.title }}</h3>
+            <div class="writeup-meta">
+                {{ post.date | date: "%B %d, %Y" }} • 
+                {% if post.category %}{{ post.category | capitalize }}{% else %}General{% endif %} • 
+                {{ post.reading_time | default: "5 min" }} read
+            </div>
+            <p class="writeup-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+            <a href="{{ post.url | relative_url }}" class="read-more">Read Full Writeup</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 
-<div class="card">
-    <h3>Join Our Community</h3>
-    <p>Help us improve the documentation and share your experience with others.</p>
-    <ul>
-        <li><strong>Found a bug?</strong> <a href="https://github.com/{{ site.github_username | default: 'yourusername' }}/{{ site.github_repo | default: 'Zero-to-Hero' }}/issues">Report it on GitHub</a></li>
-        <li><strong>Want to contribute?</strong> <a href="{{ '/contributing' | relative_url }}">Check our contribution guide</a></li>
-        <li><strong>Have questions?</strong> <a href="https://github.com/{{ site.github_username | default: 'yourusername' }}/{{ site.github_repo | default: 'Zero-to-Hero' }}/discussions">Start a discussion</a></li>
-    </ul>
+<div style="text-align: center; margin: 3rem 0;">
+    <a href="{{ '/writeups/' | relative_url }}" class="read-more" style="font-size: 1.1rem;">View All Writeups →</a>
+</div>
+
+## 💼 Professional Experience Highlights
+
+<div class="experience-grid">
+    <div class="experience-card">
+        <div class="experience-header">
+            <div>
+                <h3 class="experience-title">Senior Security Analyst</h3>
+                <p class="experience-company">TechCorp Solutions</p>
+            </div>
+            <span class="experience-date">2022 - Present</span>
+        </div>
+        <p class="experience-description">
+            Leading security assessments for enterprise clients, conducting penetration tests, 
+            and developing custom security tools. Reduced client vulnerabilities by 40% through 
+            comprehensive testing methodologies.
+        </p>
+        <div class="experience-skills">
+            <span class="skill-tag">Penetration Testing</span>
+            <span class="skill-tag">Risk Assessment</span>
+            <span class="skill-tag">Team Leadership</span>
+        </div>
+    </div>
+    
+    <div class="experience-card">
+        <div class="experience-header">
+            <div>
+                <h3 class="experience-title">Full-Stack Developer</h3>
+                <p class="experience-company">StartupXYZ</p>
+            </div>
+            <span class="experience-date">2020 - 2022</span>
+        </div>
+        <p class="experience-description">
+            Built and maintained web applications serving 10,000+ users. Implemented security 
+            best practices and optimized performance, resulting in 50% faster load times.
+        </p>
+        <div class="experience-skills">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Python Django</span>
+            <span class="skill-tag">AWS</span>
+        </div>
+    </div>
+</div>
+
+<div style="text-align: center; margin: 3rem 0;">
+    <a href="{{ '/experience/' | relative_url }}" class="read-more" style="font-size: 1.1rem;">View Full Experience →</a>
+</div>
+
+## 🚀 Featured Projects
+
+<div class="writeup-grid">
+    <div class="writeup-card">
+        <div class="writeup-image">🛡️</div>
+        <div class="writeup-content">
+            <h3 class="writeup-title">SecureAuth Tool</h3>
+            <div class="writeup-meta">Python • Security • Open Source</div>
+            <p class="writeup-excerpt">
+                A comprehensive authentication security testing tool that automates common 
+                authentication bypass techniques and generates detailed reports.
+            </p>
+            <a href="https://github.com/yourusername/secureauth" class="read-more">View on GitHub</a>
+        </div>
+    </div>
+    
+    <div class="writeup-card">
+        <div class="writeup-image">📊</div>
+        <div class="writeup-content">
+            <h3 class="writeup-title">VulnTracker Dashboard</h3>
+            <div class="writeup-meta">React • Node.js • MongoDB</div>
+            <p class="writeup-excerpt">
+                Real-time vulnerability tracking dashboard for security teams. Features automated 
+                scanning integration and customizable reporting.
+            </p>
+            <a href="https://github.com/yourusername/vulntracker" class="read-more">View Project</a>
+        </div>
+    </div>
+    
+    <div class="writeup-card">
+        <div class="writeup-image">🔍</div>
+        <div class="writeup-content">
+            <h3 class="writeup-title">CTF Writeup Collection</h3>
+            <div class="writeup-meta">Documentation • Educational</div>
+            <p class="writeup-excerpt">
+                Comprehensive collection of CTF writeups covering web exploitation, 
+                cryptography, reverse engineering, and forensics challenges.
+            </p>
+            <a href="{{ '/writeups/ctf/' | relative_url }}" class="read-more">Browse Writeups</a>
+        </div>
+    </div>
+</div>
+
+## 🎯 Current Focus
+
+I'm currently working on:
+
+- **Advanced Web Application Security** - Researching modern authentication bypass techniques
+- **Automation Tools** - Building Python tools for security testing workflows  
+- **Knowledge Sharing** - Creating comprehensive tutorials for aspiring security professionals
+- **Open Source Contributions** - Contributing to security tools and frameworks
+
+## 📬 Let's Connect
+
+Whether you're interested in collaboration, have questions about my writeups, or just want to chat about cybersecurity and development, I'd love to hear from you!
+
+<div style="text-align: center; margin: 3rem 0;">
+    <a href="{{ '/contact/' | relative_url }}" class="read-more" style="font-size: 1.2rem;">Get In Touch →</a>
 </div>
