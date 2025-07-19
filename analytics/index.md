@@ -53,11 +53,15 @@ description: "Real-time analytics and insights about my work and progress"
     </div>
     <div class="analytics-value" id="total-words">
       {% assign total_words = 0 %}
-      {% for post in site.posts %}
-        {% assign words = post.content | number_of_words %}
-        {% assign total_words = total_words | plus: words %}
-      {% endfor %}
-      {{ total_words | divided_by: 1000 }}K
+      {% if site.posts.size > 0 %}
+        {% for post in site.posts %}
+          {% assign words = post.content | number_of_words %}
+          {% assign total_words = total_words | plus: words %}
+        {% endfor %}
+        {{ total_words | divided_by: 1000 }}K
+      {% else %}
+        0K
+      {% endif %}
     </div>
     <div class="analytics-change positive">
       ↗ +2.5K this month
@@ -72,8 +76,12 @@ description: "Real-time analytics and insights about my work and progress"
       </span>
     </div>
     <div class="analytics-value" id="avg-reading-time">
-      {% assign avg_words = total_words | divided_by: site.posts.size %}
-      {{ avg_words | divided_by: 200 }}
+      {% if site.posts.size > 0 %}
+        {% assign avg_words = total_words | divided_by: site.posts.size %}
+        {{ avg_words | divided_by: 200 }}
+      {% else %}
+        0
+      {% endif %}
     </div>
     <div style="font-size: 0.9rem; color: var(--text-muted);">minutes per writeup</div>
   </div>
