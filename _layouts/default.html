@@ -107,6 +107,18 @@
                         <li><a href="https://github.com/{{ site.author.github | default: 'yourusername' }}" class="nav-link" target="_blank">
                             <span class="nav-link-icon">⭐</span> GitHub
                         </a></li>
+
+                        <li><a href="{{ '/analytics/' | relative_url }}" class="nav-link {% if page.url contains '/analytics/' %}active{% endif %}">
+                        <span class="nav-link-icon">📊</span> Analytics
+                        </a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Analytics</h3>
+                    <ul class="nav-links"></ul>
+                        <li><a href="{{ '/analytics/' | relative_url }}" class="nav-link {% if page.url contains '/analytics/' %}active{% endif %}">
+                        <span class="nav-link-icon">📊</span> Analytics
+                        </a></li>
                     </ul>
                 </div>
             </nav>
