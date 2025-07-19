@@ -9,48 +9,15 @@ repository: "JEEJY30/Zero-to-Hero"
 github_username: "JEEJY30"
 github_repo: "Zero-to-Hero"
 
-# Technical stuff
 markdown: kramdown
 highlighter: rouge
+
+exclude:
+  - vendor/
+  - Gemfile*
+  - README.md
+  - .github/
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-seo-tag
-
-# IMPORTANT: Exclude problematic files and directories
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - README.md
-  - .github/
-  - vendor/
-  - node_modules/
-  - "*.gemspec"
-  - "*.gem"
-  - .sass-cache/
-  - .jekyll-cache/
-  - gemfiles/
-  - .bundle/
-
-# Permalink settings
-permalink: /blog/:year/:month/:day/:title/
-
-# Collections (if you want to add later)
-collections:
-  docs:
-    output: true
-    permalink: /:collection/:name/
-
-# Defaults
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      author: "JEEJY30"
-  - scope:
-      path: "docs"
-      type: "pages"
-    values:
-      layout: "docs"
