@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<div class="docs-container">
+    <aside class="sidebar">
+        <h3>Documentation</h3>
+        {% for section in site.docs_sidebar %}
+        <div class="sidebar-section">
+            <h4>{{ section.title }}</h4>
+            <ul>
+                {% for item in section.items %}
+                <li><a href="{{ item.link }}" {% if page.url == item.link %}class="active"{% endif %}>{{ item.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </aside>
+    
+    <article class="docs-content">
+        {{ content }}
+    </article>
+</div>
