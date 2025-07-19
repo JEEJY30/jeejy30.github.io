@@ -1,29 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    
+    <!-- Meta tags for social sharing -->
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
 </head>
 <body>
-    <header>
-        <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-        <nav>
-            <ul>
-                <li><a href="{{ '/' | relative_url }}">Home</a></li>
-                <li><a href="{{ '/docs/' | relative_url }}">Docs</a></li>
-                <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        {{ content }}
-    </main>
-    
-    <footer>
-        <p>&copy; 2025 {{ site.title }}</p>
-    </footer>
+    <div class="site-container">
+        <!-- Beautiful Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="{{ '/' | relative_url }}" class="site-logo">
+                    📚 {{ site.title }}
+                </a>
+                <p class="site-tagline">{{ site.description | default: "Beautiful documentation made simple" }}</p>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Main</h3>
+                    <ul class="nav-links">
+                        <li><a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' %}active{% endif %}">🏠 Home</a></li>
+                        <li><a href="{{ '/docs/' | relative_url }}" class="nav-link {% if page.url contains '/docs/' %}active{% endif %}">📖 Documentation</a></li>
+                        <li><a href="{{ '/blog/' | relative_url }}" class="nav-link {% if page.url contains '/blog/' %}active{% endif %}">📝 Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Quick Start</h3>
+                    <ul class="nav-links">
+                        <li><a href="{{ '/docs/installation' | relative_url }}" class="nav-link">⚡ Installation</a></li>
+                        <li><a href="{{ '/docs/getting-started' | relative_url }}" class="nav-link">🚀 Getting Started</a></li>
+                        <li><a href="{{ '/docs/troubleshooting' | relative_url }}" class="nav-link">🛠️ Troubleshooting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Advanced</h3>
+                    <ul class="nav-links">
+                        <li><a href="{{ '/docs/configuration' | relative_url }}" class="nav-link">⚙️ Configuration</a></li>
+                        <li><a href="{{ '/docs/api' | relative_url }}" class="nav-link">🔌 API Reference</a></li>
+                        <li><a href="{{ '/docs/examples' | relative_url }}" class="nav-link">💡 Examples</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Community</h3>
+                    <ul class="nav-links">
+                        <li><a href="https://github.com/{{ site.github_username | default: 'yourusername' }}" class="nav-link" target="_blank">💻 GitHub</a></li>
+                        <li><a href="{{ '/contributing' | relative_url }}" class="nav-link">🤝 Contributing</a></li>
+                        <li><a href="{{ '/changelog' | relative_url }}" class="nav-link">📋 Changelog</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            ☰
+        </button>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-body">
+                {{ content }}
+            </div>
+            
+            <footer class="site-footer">
+                <p>&copy; 2025 {{ site.title }}. Built with ❤️ using Jekyll & GitHub Pages.</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- JavaScript for mobile menu -->
+    <script>
+        function toggleMobileMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('open');
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const sidebar = document.querySelector('.sidebar');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (!sidebar.contains(event.target) && !toggle.contains(event.target)) {
+                sidebar.classList.remove('open');
+            }
+        });
+        
+        // Close mobile menu when clicking nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.sidebar').classList.remove('open');
+            });
+        });
+    </script>
 </body>
 </html>

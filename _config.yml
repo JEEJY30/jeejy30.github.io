@@ -1,42 +1,25 @@
 # Your site info
-title: "My Documentation Site"
-description: "Everything about my project"
+title: "Zero to Hero Documentation"
+description: "Master our tools with comprehensive guides and tutorials"
 url: "https://jeejy30.github.io"
-repository: "jeejy30/Zero-to-Hero"
-baseurl: "/zero-to-hero" # Adjust if your site is in a subdirectory
+baseurl: "/Zero-to-Hero"
+repository: "JEEJY30/Zero-to-Hero"
 
-# Technical stuff (don't change)
+# GitHub info (for links)
+github_username: "JEEJY30"
+github_repo: "Zero-to-Hero"
+
+# Technical stuff
 markdown: kramdown
+highlighter: rouge
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
 
-# Main menu items
-navigation:
-  - name: "Home"
-    link: "/"
-  - name: "Docs"
-    link: "/docs/"
-  - name: "Blog" 
-    link: "/blog/"
-
-# Documentation sidebar menu
-docs_sidebar:
-  - title: "Getting Started"
-    items:
-      - name: "Installation"
-        link: "/docs/installation"
-      - name: "Quick Start"
-        link: "/docs/getting-started"
-  - title: "Configuration"
-    items:
-      - name: "Basic Setup"
-        link: "/docs/basic-setup"
-      - name: "Advanced"
-        link: "/docs/advanced"
-  - title: "Help"
-    items:
-      - name: "Troubleshooting"
-        link: "/docs/troubleshooting"
-      - name: "FAQ"
-        link: "/docs/faq"
+# Exclude files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .github/
