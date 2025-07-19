@@ -1,14 +1,17 @@
-source "https://rubygems.org"
+title: "Zero to Hero Documentation"
+description: "Master our tools with comprehensive guides and tutorials"
+url: "https://jeejy30.github.io"
+baseurl: "/Zero-to-Hero"
 
-# Use GitHub Pages gem which includes Jekyll and compatible plugins
-gem "github-pages", group: :jekyll_plugins
+markdown: kramdown
+highlighter: rouge
 
-# Additional gems for functionality
-gem "faraday-retry"
+exclude:
+  - vendor/
+  - Gemfile*
+  - README.md
+  - .github/
 
-# Only essential plugins
-group :jekyll_plugins do
-  gem "jekyll-feed"
-  gem "jekyll-sitemap"
-  gem "jekyll-seo-tag"
-end
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
