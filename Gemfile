@@ -1,19 +1,12 @@
 source "https://rubygems.org"
 
+# Main GitHub Pages gem
 gem "github-pages", group: :jekyll_plugins
+
+# Essential plugins only (avoid problematic ones)
 gem "jekyll-feed"
 gem "jekyll-sitemap"
+gem "jekyll-seo-tag"
 
-# For development/testing (optional)
-group :jekyll_plugins do
-  gem "jekyll-coffeescript"
-  gem "jekyll-default-layout"
-  gem "jekyll-gist"
-  gem "jekyll-github-metadata"
-  gem "jekyll-paginate"
-  gem "jekyll-relative-links"
-  gem "jekyll-optional-front-matter"
-  gem "jekyll-readme-index"
-  gem "jekyll-redirect-from"
-  gem "jekyll-titles-from-headings"
-end
+# Fix for Faraday warning
+gem "faraday-retry"
