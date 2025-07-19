@@ -2,7 +2,7 @@
 title: "My Documentation Site"
 description: "Everything about my project"
 url: "https://jeejy30.github.io"
-repository: "jeejy30/zero-to-hero"
+repository: "jeejy30/Zero-to-Hero"
 baseurl: "/zero-to-hero" # Adjust if your site is in a subdirectory
 
 # Technical stuff (don't change)
