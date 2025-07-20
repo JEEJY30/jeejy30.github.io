@@ -1,0 +1,18 @@
+// ==========================================================================
+// RESET - Foundation styles
+// ==========================================================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-primary);
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  transition: all var(--transition-base);
+  overflow-x: hidden;
+}

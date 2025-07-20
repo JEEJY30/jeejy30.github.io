@@ -1,0 +1,54 @@
+// ==========================================================================
+// NAVIGATION - Sidebar navigation
+// ==========================================================================
+
+.sidebar-nav {
+  padding: var(--space-4) 0;
+}
+
+.nav-section {
+  margin-bottom: var(--space-8);
+}
+
+.nav-section-title {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0 var(--space-6) var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  padding: var(--space-3) var(--space-6);
+  transition: all var(--transition-base);
+  border-left: 3px solid transparent;
+  
+  &:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    border-left-color: rgba(255, 255, 255, 0.5);
+    transform: translateX(5px);
+  }
+  
+  &.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    border-left-color: white;
+    font-weight: 500;
+  }
+}
+
+.nav-link-icon {
+  margin-right: var(--space-3);
+  font-size: 1.1rem;
+}

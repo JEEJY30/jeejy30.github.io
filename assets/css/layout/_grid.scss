@@ -1,0 +1,56 @@
+// ==========================================================================
+// GRID SYSTEM - Layout utilities
+// ==========================================================================
+
+// Experience grid
+.experience-grid {
+  display: grid;
+  gap: var(--space-8);
+  margin: var(--space-8) 0;
+}
+
+// Writeup grid
+.writeup-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--space-8);
+  margin: var(--space-8) 0;
+}
+
+// Stats grid
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-6);
+  margin: var(--space-8) 0;
+}
+
+// Dashboard grid
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-8);
+  margin: var(--space-8) 0;
+}
+
+// Mobile responsive
+@media (max-width: 768px) {
+  .writeup-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 640px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

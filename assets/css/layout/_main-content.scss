@@ -1,0 +1,56 @@
+// ==========================================================================
+// MAIN CONTENT - Layout for main content area
+// ==========================================================================
+
+.site-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 300px;
+  background: var(--bg-primary);
+  min-height: 100vh;
+  transition: all var(--transition-base);
+}
+
+.content-header {
+  background: var(--bg-primary);
+  padding: var(--space-8) var(--space-12);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.content-body {
+  padding: var(--space-12);
+  max-width: 1000px;
+}
+
+.site-footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: var(--space-12);
+  text-align: center;
+  color: var(--text-muted);
+  margin-top: 4rem;
+}
+
+// Mobile responsive
+@media (max-width: 1024px) {
+  .main-content {
+    margin-left: 0;
+  }
+  
+  .content-header {
+    padding: var(--space-4) var(--space-6);
+    padding-top: 4rem;
+  }
+  
+  .content-body {
+    padding: var(--space-8) var(--space-6);
+  }
+}

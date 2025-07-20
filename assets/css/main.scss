@@ -1,0 +1,40 @@
+// ==========================================================================
+// MAIN STYLESHEET - Professional Architecture
+// ==========================================================================
+
+// 1. BASE FOUNDATION
+@import 'base/variables';
+@import 'base/reset';
+@import 'base/typography';
+
+// 2. LAYOUT COMPONENTS
+@import 'layout/grid';
+@import 'layout/sidebar';
+@import 'layout/main-content';
+
+// 3. UI COMPONENTS
+@import 'components/navigation';
+@import 'components/cards';
+@import 'components/theme-toggle';
+
+// 4. PAGE SPECIFIC
+@import 'pages/analytics';
+
+// 5. THEMES
+@import 'themes/dark';
+
+// Global animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-body > * {
+  animation: fadeInUp 0.6s ease-out;
+}
