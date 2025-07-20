@@ -3,6 +3,7 @@
    ========================================================================== */
 
 /* Import all CSS files in order */
+@import url('about.css');
 @import url('variables.css');
 @import url('reset.css');
 @import url('typography.css');
