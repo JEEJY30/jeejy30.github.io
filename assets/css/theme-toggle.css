@@ -1,6 +1,6 @@
-// ==========================================================================
-// THEME TOGGLE - Dark/Light mode switch
-// ==========================================================================
+/* ==========================================================================
+   THEME TOGGLE - Dark/Light mode switch
+   ========================================================================== */
 
 .theme-toggle {
   position: fixed;
@@ -19,14 +19,14 @@
   align-items: center;
   gap: var(--space-2);
   font-weight: 500;
-  
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-large);
-  }
 }
 
-// Mobile positioning
+.theme-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-large);
+}
+
+/* Mobile positioning */
 @media (max-width: 1024px) {
   .theme-toggle {
     top: var(--space-4);

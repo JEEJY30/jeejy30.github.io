@@ -1,6 +1,6 @@
-// ==========================================================================
-// TYPOGRAPHY - Text styles
-// ==========================================================================
+/* ==========================================================================
+   TYPOGRAPHY - Text styles
+   ========================================================================== */
 
 .page-title {
   font-size: 3rem;
@@ -34,17 +34,17 @@ h2 {
   margin: 2.5rem 0 var(--space-4);
   position: relative;
   padding-bottom: var(--space-2);
-  
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    border-radius: 2px;
-  }
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  border-radius: 2px;
 }
 
 h3 {
@@ -66,14 +66,14 @@ a {
   text-decoration: none;
   transition: all var(--transition-base);
   font-weight: 500;
-  
-  &:hover {
-    color: var(--primary-dark);
-    text-decoration: underline;
-  }
 }
 
-// Code styles
+a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Code styles */
 pre {
   background: var(--bg-tertiary);
   color: var(--text-primary);
@@ -99,4 +99,11 @@ pre code {
   background: transparent;
   color: inherit;
   padding: 0;
+}
+
+/* Mobile responsive */
+@media (max-width: 1024px) {
+  .page-title {
+    font-size: 2rem;
+  }
 }
