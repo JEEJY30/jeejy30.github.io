@@ -9,7 +9,7 @@
 
 .main-content {
   flex: 1;
-  margin-left: 600px;
+  margin-left: 450px;
   background: var(--bg-primary);
   min-height: 100vh;
   transition: all var(--transition-base);
