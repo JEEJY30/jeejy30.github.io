@@ -4,12 +4,14 @@
 
 .sidebar {
   width: 300px;
+  max-width: 300xp;
   background: var(--sidebar-gradient);
   position: fixed;
   height: 100vh;
   left: 0;
   top: 0;
   overflow-y: auto;
+  overflow-x: hidden;
   box-shadow: var(--shadow-large);
   z-index: 1000;
   transition: transform var(--transition-base);
