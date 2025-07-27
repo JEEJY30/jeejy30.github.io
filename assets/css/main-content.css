@@ -9,7 +9,7 @@
 
 .main-content {
   flex: 1;
-  margin-left: 450px;
+  margin-left: 300px;
   background: var(--bg-primary);
   min-height: 100vh;
   transition: all var(--transition-base);
@@ -19,7 +19,7 @@
   background: var(--bg-primary);
   padding: var(--space-8) var(--space-12);
   border-bottom: 1px solid var(--border-color);
-  position: sticky;
+  position: sticky; 
   top: 0;
   z-index: 100;
   backdrop-filter: blur(10px);
@@ -28,6 +28,14 @@
 .content-body {
   padding: var(--space-12);
   max-width: 1000px;
+  
+  /* Center with left bias using unequal margins */
+  margin-left: auto;
+  margin-right: auto;
+  margin-left: 60px;  /* Shift slightly left from perfect center */
+  margin-right: 120px; /* More space on right to create left bias */
+  
+  box-sizing: border-box;
 }
 
 .site-footer {
