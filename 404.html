@@ -1,0 +1,386 @@
+---
+layout: default
+title: "404 - Page Not Found"
+description: "The page you're looking for doesn't exist. Let's get you back on track."
+permalink: /404.html
+---
+
+<div class="error-container">
+    <div class="error-content">
+        <div class="error-code">404</div>
+        <div class="error-title">Oops! Page Not Found</div>
+        <div class="error-subtitle">
+            The page you're looking for seems to have vanished into the digital void. 
+            Don't worry though – even the best security researchers sometimes take a wrong turn!
+        </div>
+
+        <div class="error-ascii">
+            <pre>
+    ┌─────────────────────────────────────┐
+    │  🔍 SEARCH OPERATION FAILED         │
+    │                                     │
+    │  Status: 404 - Resource Not Found   │
+    │  Location: Unknown                  │
+    │  Threat Level: Minimal              │
+    └─────────────────────────────────────┘
+            </pre>
+        </div>
+
+        <div class="error-suggestions">
+            <h3>🛠️ Troubleshooting Options:</h3>
+            
+            <div class="suggestion-grid">
+                <div class="suggestion-card">
+                    <div class="suggestion-icon">🏠</div>
+                    <h4>Return Home</h4>
+                    <p>Start fresh from the homepage and navigate to what you need.</p>
+                    <a href="{{ '/' | relative_url }}" class="suggestion-link">Go Home</a>
+                </div>
+
+                <div class="suggestion-card">
+                    <div class="suggestion-icon">📝</div>
+                    <h4>Browse Writeups</h4>
+                    <p>Explore technical writeups and security research articles.</p>
+                    <a href="{{ '/writeups/' | relative_url }}" class="suggestion-link">View Writeups</a>
+                </div>
+
+                <div class="suggestion-card">
+                    <div class="suggestion-icon">💼</div>
+                    <h4>Check Experience</h4>
+                    <p>Learn about professional background and achievements.</p>
+                    <a href="{{ '/experience/' | relative_url }}" class="suggestion-link">View Experience</a>
+                </div>
+
+                <div class="suggestion-card">
+                    <div class="suggestion-icon">🚀</div>
+                    <h4>View Projects</h4>
+                    <p>Discover open-source projects and development work.</p>
+                    <a href="{{ '/projects/' | relative_url }}" class="suggestion-link">Browse Projects</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="error-search">
+            <h3>🔍 Still Looking for Something?</h3>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search the site..." />
+                <button id="search-button" onclick="performSearch()">Search</button>
+            </div>
+            <div id="search-results" class="search-results"></div>
+        </div>
+
+        <div class="error-help">
+            <h3>📬 Need More Help?</h3>
+            <p>
+                If you believe this is an error or you're looking for something specific, 
+                feel free to reach out. I'm always happy to help!
+            </p>
+            <a href="{{ '/contact/' | relative_url }}" class="contact-button">Get In Touch</a>
+        </div>
+
+        <div class="error-fun-fact">
+            <h4>💡 Security Fun Fact:</h4>
+            <p id="security-fact">
+                Loading security wisdom...
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+.error-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.error-code {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.error-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.error-subtitle {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.error-ascii {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    margin: 2rem 0;
+    padding: 1rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+.error-ascii pre {
+    margin: 0;
+}
+
+.suggestion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.suggestion-card {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.suggestion-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    border-color: #3498db;
+}
+
+.suggestion-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.suggestion-card h4 {
+    margin: 0.5rem 0;
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
+.suggestion-card p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.suggestion-link {
+    display: inline-block;
+    background: #3498db;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.suggestion-link:hover {
+    background: #2980b9;
+    text-decoration: none;
+    color: white;
+}
+
+.error-search {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.search-container {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 400px;
+    margin: 1rem auto;
+}
+
+#search-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+#search-button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+#search-button:hover {
+    background: #218838;
+}
+
+.search-results {
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.error-help {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px;
+}
+
+.contact-button {
+    display: inline-block;
+    background: white;
+    color: #667eea;
+    padding: 0.75rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    text-decoration: none;
+    color: #667eea;
+}
+
+.error-fun-fact {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #e8f5e8;
+    border-left: 4px solid #28a745;
+    border-radius: 6px;
+    text-align: left;
+}
+
+.error-fun-fact h4 {
+    margin: 0 0 0.5rem 0;
+    color: #155724;
+}
+
+.error-fun-fact p {
+    margin: 0;
+    color: #155724;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .error-code {
+        font-size: 4rem;
+    }
+    
+    .error-title {
+        font-size: 2rem;
+    }
+    
+    .suggestion-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-container {
+        flex-direction: column;
+    }
+    
+    .error-container {
+        padding: 1rem;
+    }
+}
+</style>
+
+<script>
+// Security fun facts array
+const securityFacts = [
+    "The first computer virus was created in 1971 and was called 'The Creeper'. It displayed the message: 'I'm the creeper, catch me if you can!'",
+    "The term 'bug' in computing comes from Admiral Grace Hopper finding an actual bug (moth) stuck in a computer relay in 1947.",
+    "The most common password is still '123456', followed by 'password' and '123456789'. Please don't use these!",
+    "Cybercrime damages are projected to cost the world $10.5 trillion annually by 2025.",
+    "The average time to identify a data breach is 287 days, and it takes an additional 80 days to contain it.",
+    "Social engineering accounts for 98% of cyber attacks, making human error the biggest security vulnerability.",
+    "The first ransomware attack occurred in 1989 and was distributed via floppy disks through postal mail.",
+    "Two-factor authentication can block up to 99.9% of automated attacks, yet only 28% of people use it regularly."
+];
+
+// Display random security fact
+function displaySecurityFact() {
+    const randomFact = securityFacts[Math.floor(Math.random() * securityFacts.length)];
+    document.getElementById('security-fact').textContent = randomFact;
+}
+
+// Simple search functionality
+function performSearch() {
+    const query = document.getElementById('search-input').value.trim();
+    const resultsContainer = document.getElementById('search-results');
+    
+    if (!query) {
+        resultsContainer.innerHTML = '<p>Please enter a search term.</p>';
+        return;
+    }
+    
+    // Mock search results - replace with actual search implementation
+    const mockResults = [
+        { title: 'IAM Security Best Practices', url: '/writeups/iam-security/' },
+        { title: 'Building Secure CI/CD Pipelines', url: '/writeups/secure-cicd/' },
+        { title: 'OWASP Top 10 Deep Dive', url: '/writeups/owasp-top-10/' },
+        { title: 'Professional Experience', url: '/experience/' },
+        { title: 'Contact Information', url: '/contact/' }
+    ];
+    
+    const filteredResults = mockResults.filter(result => 
+        result.title.toLowerCase().includes(query.toLowerCase())
+    );
+    
+    if (filteredResults.length > 0) {
+        resultsContainer.innerHTML = `
+            <h4>Search Results for "${query}":</h4>
+            <ul style="text-align: left; max-width: 400px; margin: 0 auto;">
+                ${filteredResults.map(result => 
+                    `<li><a href="${result.url}" style="color: #3498db; text-decoration: none;">${result.title}</a></li>`
+                ).join('')}
+            </ul>
+        `;
+    } else {
+        resultsContainer.innerHTML = `<p>No results found for "${query}". Try searching for "security", "writeups", or "projects".</p>`;
+    }
+}
+
+// Add enter key support for search
+document.addEventListener('DOMContentLoaded', function() {
+    displaySecurityFact();
+    
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+    }
+});
+
+// Add some interactivity to the ASCII art
+document.addEventListener('DOMContentLoaded', function() {
+    const asciiArt = document.querySelector('.error-ascii');
+    if (asciiArt) {
+        asciiArt.addEventListener('click', function() {
+            this.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 200);
+        });
+    }
+});
+</script>

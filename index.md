@@ -11,20 +11,16 @@ description: "Welcome to my personal portfolio showcasing professional experienc
 
 <div class="stats-grid">
     <div class="stat-card">
-        <div class="stat-number">50+</div>
+        <div class="stat-number">10+</div>
         <div class="stat-label">Writeups Published</div>
     </div>
     <div class="stat-card">
-        <div class="stat-number">5+</div>
+        <div class="stat-number">2+</div>
         <div class="stat-label">Years Experience</div>
     </div>
     <div class="stat-card">
         <div class="stat-number">25+</div>
         <div class="stat-label">Projects Completed</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-number">10k+</div>
-        <div class="stat-label">Lines of Code</div>
     </div>
 </div>
 
@@ -34,17 +30,16 @@ description: "Welcome to my personal portfolio showcasing professional experienc
     <div class="experience-card">
         <div class="experience-header">
             <div>
-                <h3 class="experience-title">🔒 Cybersecurity Research</h3>
-                <p class="experience-company">Vulnerability Assessment & Penetration Testing</p>
+                <h3 class="experience-title">🔒 IAM Ninja, Data Security Analyst And Enthusiast DevOps Engineer</h3>
+                <p class="experience-company"></p>
             </div>
         </div>
         <p class="experience-description">
-            Specialized in web application security, network penetration testing, and vulnerability research. 
-            I regularly publish detailed writeups on CTF challenges, bug bounty findings, and security tools.
+            
         </p>
         <div class="experience-skills">
             <span class="skill-tag">OWASP Top 10</span>
-            <span class="skill-tag">Burp Suite</span>
+            <span class="skill-tag"></span>
             <span class="skill-tag">Metasploit</span>
             <span class="skill-tag">Python</span>
         </div>
@@ -212,9 +207,11 @@ description: "Welcome to my personal portfolio showcasing professional experienc
 
 I'm currently working on:
 
-- **Advanced Web Application Security** - Researching modern authentication bypass techniques
-- **Automation Tools** - Building Python tools for security testing workflows  
-- **Knowledge Sharing** - Creating comprehensive tutorials for aspiring security professionals
+- **IAM Ninja, RBAC And ABAC Mastery** -  Help Organization Enhencing Overall Security Posture
+- **Data Security, Crafting Security From Really Matters** -  Help Organization Enhencing Data Security Posture
+- **Build Scalable And Reliable Systems** - Designing Modern Architectures
+- **CI/CD Pipelines That Never Brakes** - Building Resilient, Collaborative CI/CD Pipelines
+- **RDB, NRDB And Event Driven Architecture** - Creating 
 - **Open Source Contributions** - Contributing to security tools and frameworks
 
 ## 📬 Let's Connect
